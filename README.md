@@ -16,3 +16,4 @@
 
 ## reference
 - https://fastapi.tiangolo.com/deployment/docker/
+- https://www.postgresqltutorial.com/import-csv-file-into-posgresql-table/
