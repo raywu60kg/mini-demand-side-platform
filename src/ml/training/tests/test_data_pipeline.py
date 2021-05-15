@@ -35,6 +35,7 @@ class TestPostgresDataPipeline(TestCase):
     def test_get_data(self):
         res_train_x, res_train_y = self.pdp.get_training_data()
         res_test_x, res_test_y = self.pdp.get_testing_data()
-
+        print(res_train_x, res_train_y)
+        print(res_test_x, res_test_y)
         assert len(res_train_x) + len(res_test_x) == len(self.pdp.records)
         assert len(res_train_y) + len(res_test_y) == len(self.pdp.records)

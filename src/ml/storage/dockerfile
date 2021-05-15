@@ -1,1 +1,3 @@
-docker run -p 9000:9000 minio/minio server /data
+FROM minio/minio:RELEASE.2021-05-11T23-27-41Z
+ENV MINIO_ROOT_USER=dsp
+ENV MINIO_ROOT_PASSWORD=00000000
