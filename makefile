@@ -4,7 +4,8 @@ db-ctr-build:
 
 db-ctr-up:
 	docker run -d \
-        --rm \
+        -p 5432:5432 \
+		--rm \
 	    --name db-ctr \
 	    dsp/db-ctr:${TAG}
 
