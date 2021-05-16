@@ -2,6 +2,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
 from app.model_saver import MinioModelSaver
+from app.logger import get_logger
+
+log = get_logger(logger_name="data_pipeline")
 
 
 class Train():
@@ -42,5 +45,7 @@ class SklearnTrain(Train):
         precision, recall, _ = precision_recall_curve(self.y_test, predictions)
         average_precision = auc(recall, precision)
 
-        return {"accuracy": accuracy, "roc_auc": roc_auc, "average_precision": average_precision}
-
+        return {
+            "accuracy": accuracy,
+            "roc_auc": roc_auc,
+            "average_precision": average_precision}

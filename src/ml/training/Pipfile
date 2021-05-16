@@ -13,6 +13,8 @@ minio = "==7.0.3"
 fastapi = "==0.65.1"
 psycopg2-binary = "==2.8.6"
 pandas = "==0.24.2"
+rich = "==10.2.0"
+uvicorn = "==0.13.4"
 
 [requires]
 python_version = "3.6"

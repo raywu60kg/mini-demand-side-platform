@@ -12,12 +12,12 @@ db-ctr-up:
 db-ctr-exec:
 	docker exec -it db-ctr psql -U dsp
 
-ml-storge-build:
+ml-storage-build:
 	docker build -f ./src/ml/storage/dockerfile -t dsp/ml-storage:${TAG} .
 
-ml-storge-up:
-	docker run -it \
+ml-storage-up:
+	docker run -it -d\
         -p 9000:9000 \
 		--rm \
-	    --name ml-storge \
+	    --name ml-storage \
 	    dsp/ml-storage:${TAG}  server /data

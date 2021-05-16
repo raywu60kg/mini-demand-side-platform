@@ -26,7 +26,7 @@ class TestPostgresDataPipeline(TestCase):
         res_x, res_y = self.pdp.format_data(
             data_columns=data_columns,
             feature_mapping=feature_mapping, 
-            target_feature=target_features)
+            target_features=target_features)
         print(res_x, res_y)
         print(test_formated_y)
         assert res_x.equals(test_formated_x)
