@@ -4,11 +4,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest = "*"
 
 [packages]
 fastapi = "==0.65.1"
-scikit-learn = "==0.24.2"
 minio = "==7.0.3"
+uvicorn = "==0.13.4"
+rich = "==10.2.0"
 
 [requires]
 python_version = "3.6"
