@@ -7,11 +7,11 @@ verify_ssl = true
 pytest = "*"
 
 [packages]
+requests = "==2.25.1"
 fastapi = "==0.65.1"
-minio = "==7.0.3"
-uvicorn = "==0.13.4"
+psycopg2-binary = "==2.8.6"
 rich = "==10.2.0"
-scikit-learn = "==0.24.2"
+uvicorn = "==0.13.4"
 
 [requires]
 python_version = "3.6"

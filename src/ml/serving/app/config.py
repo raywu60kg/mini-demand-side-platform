@@ -24,7 +24,7 @@ feature_mapping = {
 
 
 class ModelInput(BaseModel):
-    ad_id: str
+    ad_id: int
     status: bool
     bidding_cpc: float
     advertiser: str
@@ -43,3 +43,5 @@ class ModelOutput(BaseModel):
 
 class HealthCheckOutput(BaseModel):
     health: bool
+
+default_ctr = 0.009905203839797677

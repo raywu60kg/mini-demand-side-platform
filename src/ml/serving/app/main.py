@@ -1,5 +1,5 @@
 from typing import Optional
-from app.config import ModelInput, ModelOutput, HealthCheckOutput, minio_server_info
+from app.config import ModelInput, ModelOutput, HealthCheckOutput, minio_server_info, default_ctr
 from fastapi import FastAPI
 from app.logger import get_logger
 from app.utils import format_data
@@ -26,20 +26,21 @@ def health_check():
 
 
 @app.post("/model:predict", response_model=ModelOutput)
-async def get_model_predict(data: ModelInput):
+def get_model_predict(data: ModelInput):
+    log.info("000000")
     try:
         formated_data = format_data(data.dict())
-        log.fatal("@@@ {}".format(formated_data))
+        log.info("11111 {}".format(format_data))
         prediction = model.predict_proba(formated_data)[0][0]
     except Exception as e:
         log.error("Error in makeing prediction: {}".format(e))
-        prediction = 0.009905203839797677
+        prediction = default_ctr
 
     return {"prediction": prediction}
 
 
 @app.put("/model")
-async def update_model():
+def update_model():
     pass
 
 

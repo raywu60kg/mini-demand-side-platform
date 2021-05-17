@@ -8,7 +8,7 @@ postgres_server_info = {
     "user": os.getenv("postgres_user", "dsp"),
     "password": os.getenv("postgres_password", "dsp"),
     "host": os.getenv("postgres_host", "localhost"),
-    "port": os.getenv("postgres_port", "5432")
+    "port": os.getenv("postgres_port", "5433")
 }
 minio_server_info = {
     "uri": os.getenv("minio_uri", "localhost:9000"),
