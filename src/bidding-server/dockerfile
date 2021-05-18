@@ -1,3 +1,17 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+FROM python:3.6.9-slim-buster as base
+WORKDIR /usr/src/app
+ADD ./src/bidding-server/. . 
+RUN apt-get update -qq && \
+    apt-get install -yqq apt-utils && \
+    apt-get install -yqq procps && \
+    apt-get install -yqq gcc &&\
+    apt-get install -yqq --no-install-recommends vim &&\
 
-COPY ./app /app
+    #Clean-up
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get clean
+
+RUN pip install --upgrade pip
+RUN pip install pipenv
+RUN pipenv install --system --deploy --ignore-pipfile
+ENTRYPOINT uvicorn app.main:app --host 0.0.0.0 --port 8000

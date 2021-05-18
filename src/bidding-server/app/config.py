@@ -1,12 +1,6 @@
 from pydantic import BaseModel
 import os
 
-minio_server_info = {
-    "uri": os.getenv("minio_uri", "localhost:9000"),
-    "access_key": os.getenv("minio_access_key", "dsp"),
-    "secret_key": os.getenv("secret_key", "00000000")
-}
-
 feature_mapping = {
     0: {"layout_style": "AB"},
     1: {"layout_style": "RU"},
@@ -51,3 +45,4 @@ postgres_server_info = {
     "port": os.getenv("postgres_port", "5433")
 }
 model_uri = os.getenv("model_uri", "http://localhost:8000/model:predict")
+http://ml-serving:8000/model:predict

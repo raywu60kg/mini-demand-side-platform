@@ -1,0 +1,65 @@
+version: "2.2"
+services:
+  bidding-server:
+    build: 
+      dockerfile: ./src/bidding-server/dockerfile
+      context: .
+    ports:
+      - "8000:8000"
+    container_name: bidding-server
+    depends_on: 
+      - db-ads
+    environment:
+      - postgres_host=db-ads
+      - postgres_port=5432
+      - model_uri=http://ml-serving:8000/model:predict
+
+  db-ads:
+    build:
+      dockerfile: ./src/db/ads/dockerfile
+      context: .
+    container_name: db-ads
+
+  db-ctr:
+    build: 
+      dockerfile: ./src/db/ctr/dockerfile
+      context: .
+    container_name: db-ctr
+
+  ml-serving:
+    build: 
+      dockerfile: ./src/ml/serving/dockerfile
+      context: .
+    container_name: ml-serving
+    depends_on: 
+      - ml-storage
+    ports:
+      - "8002:8000"
+    environment: 
+      - minio_uri=ml-storage:9000
+
+  ml-training:
+    build: 
+      dockerfile: ./src/ml/training/dockerfile
+      context: .
+    container_name: ml-training
+    ports:
+      - "8001:8000"
+    depends_on: 
+      - ml-storage
+      - db-ctr
+
+  ml-storage:
+    build: 
+      dockerfile: ./src/ml/storage/dockerfile
+      context: .
+    container_name: ml-storage
+    ports:
+      - "9000:9000"
+    environment: 
+      - minio_uri=ml-storage:9000
+    environment:
+      - postgres_host=db-ctr
+      - postgres_port=5432
+    command: server /data
+    

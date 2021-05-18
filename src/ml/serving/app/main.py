@@ -9,6 +9,7 @@ import pickle
 log = get_logger(logger_name="main")
 
 app = FastAPI()
+log.fatal("minio server info : {}".format(minio_server_info))
 minio_client = Minio(
     minio_server_info["uri"],
     access_key=minio_server_info["access_key"],
@@ -27,10 +28,8 @@ def health_check():
 
 @app.post("/model:predict", response_model=ModelOutput)
 def get_model_predict(data: ModelInput):
-    log.info("000000")
     try:
         formated_data = format_data(data.dict())
-        log.info("11111 {}".format(format_data))
         prediction = model.predict_proba(formated_data)[0][0]
     except Exception as e:
         log.error("Error in makeing prediction: {}".format(e))
