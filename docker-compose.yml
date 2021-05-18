@@ -48,6 +48,10 @@ services:
     depends_on: 
       - ml-storage
       - db-ctr
+    environment:
+      - postgres_host=db-ctr
+      - postgres_port=5432
+      - minio_uri=ml-storage:9000
 
   ml-storage:
     build: 
