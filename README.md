@@ -1,5 +1,5 @@
 # mini-demand-side-platform
-![image](pictures/infra.png)
+![image](pictures/mini-dsp.png)
 
 check the infra on web [here](https://www.plectica.com/maps/EBS5LQRHZ)
 ## Tech stack
@@ -45,7 +45,7 @@ curl -X 'POST' \
 - minio: localhost:9000
   - access_key: dsp
   - secret_key: 00000000
-  
+
 ## future
 - Enhance ml training function
 - Load balance
