@@ -1,4 +1,7 @@
 # mini-demand-side-platform
+![image](pictures/infra.png)
+
+check the infra on web [here](https://www.plectica.com/maps/EBS5LQRHZ)
 ## Tech stack
 - api: fastapi
 - container: docker, docker-compose
@@ -35,8 +38,16 @@ curl -X 'POST' \
 }'
 ```
 
+## service
+- bidding-server docs: localhost:8000/docs
+- ml-training docs: localhost:8001/docs
+- ml-serving docs: localhost:8002/docs
+- minio: localhost:9000
+  - access_key: dsp
+  - secret_key: 00000000
+  
 ## future
-- Enhance ml training fuction
+- Enhance ml training function
 - Load balance
 - Monitoring
 - OLTP HA
