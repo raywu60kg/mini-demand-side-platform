@@ -1,6 +1,7 @@
 FROM postgres:12.5-alpine
-ADD ./src/db/ctr/ctr_dataset.gz /ctr_dataset.gz
-ADD ./src/db/ctr/init-user-db.sh /docker-entrypoint-initdb.d/
+ENV SERVICES_PATH="./services/db-olap"
+ADD $SERVICES_PATH/ctr_dataset.gz /ctr_dataset.gz
+ADD $SERVICES_PATH/init-user-db.sh /docker-entrypoint-initdb.d/
 ENV POSTGRES_DB=dsp
 ENV POSTGRES_USER=dsp
 ENV POSTGRES_PASSWORD=dsp

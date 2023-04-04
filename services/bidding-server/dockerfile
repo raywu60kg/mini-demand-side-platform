@@ -65,7 +65,7 @@ COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 RUN poetry install
 
 # will become mountpoint of our code
-WORKDIR /usr/src/
+WORKDIR /usr/src/app
 
 EXPOSE 8000
 CMD ["uvicorn", "--reload", "main:app"]

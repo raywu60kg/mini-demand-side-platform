@@ -1,4 +1,5 @@
 FROM minio/minio:RELEASE.2021-05-11T23-27-41Z
+ENV SERVICES_PATH="./services/dp-object-storage"
 ENV MINIO_ROOT_USER=dsp
 ENV MINIO_ROOT_PASSWORD=00000000
-ADD ./src/ml/storage/data /data
+ADD $SERVICES_PATH/data /data

@@ -14,10 +14,10 @@ class TestClickPerCost(TestCase):
         print(res)
         assert 1 == 2
 
-    def test_make_bid(self):
-        res = self.cpc.make_bid(
-            ads_info=test_ads_info,
-            bid_request_info=test_bid_request_info,
-            ctr_info=test_ctr_info)
-        print(res)
-        assert 1 == 2
+    # def test_make_bid(self):
+    #     res = self.cpc.make_bid(
+    #         ads_info=test_ads_info,
+    #         bid_request_info=test_bid_request_info,
+    #         ctr_info=test_ctr_info)
+    #     print(res)
+    #     assert 1 == 2

@@ -45,4 +45,3 @@ postgres_server_info = {
     "port": os.getenv("postgres_port", "5433")
 }
 model_uri = os.getenv("model_uri", "http://localhost:8000/model:predict")
-http://ml-serving:8000/model:predict

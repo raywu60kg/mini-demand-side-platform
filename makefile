@@ -1,4 +1,5 @@
 TAG = 0.1.0
+
 db-ctr-build:
 	docker build -f ./src/db/ctr/dockerfile -t dsp/db-ctr:${TAG} .
 
@@ -35,3 +36,4 @@ db-ads-up:
 
 db-ads-exec:
 	docker exec -it db-ads psql -U dsp dsp_rtb
+
